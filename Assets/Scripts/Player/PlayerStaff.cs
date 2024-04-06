@@ -26,7 +26,11 @@ namespace TopDownHordes.Player
                 return;
             }
 
-            Instantiate(_spellsController.ActiveSpell.SpellPrefab, _shootPoint.position, _shootPoint.rotation);
+            var activeSpell = _spellsController.ActiveSpell;
+            var projectile = Instantiate(activeSpell.SpellPrefab, _shootPoint.position, _shootPoint.rotation);
+            
+            projectile.Init(activeSpell.ProjectileSpeed);
+            
             _spellsController.ReloadSpell();
         }
     }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Spell DeadlyMist
   m_EditorClassIdentifier: 
   SpellName: Deadly Mist
-  SpellPrefab: {fileID: 2417210914284847609, guid: 8a73f08078e276941911b2124c716d89, type: 3}
+  SpellPrefab: {fileID: 5571975995740048160, guid: 8a73f08078e276941911b2124c716d89, type: 3}
   ProjectileSpeed: 10
   ReloadSpeed: 6
   Damage: 2

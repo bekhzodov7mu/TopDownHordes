@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace TopDownHordes.Projectile
@@ -9,12 +10,9 @@ namespace TopDownHordes.Projectile
         [Required]
         [SerializeField] private Rigidbody2D _rigidbody2D;
 
+        [SerializeField] private Transform _visual;
+
         private float _speed;
-        
-        public void Init(float speed)
-        {
-            _speed = speed;
-        }
         
         private void FixedUpdate()
         {
@@ -25,6 +23,15 @@ namespace TopDownHordes.Projectile
         {
             // TODO:
             Destroy(gameObject);
+        }
+        
+        public void Init(float speed)
+        {
+            _speed = speed;
+
+            var scale = _visual.localScale;
+            _visual.localScale = Vector3.zero;
+            _visual.DOScale(scale, 0.3f);
         }
     }
 }

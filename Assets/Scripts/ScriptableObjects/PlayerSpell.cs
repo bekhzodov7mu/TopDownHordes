@@ -1,4 +1,5 @@
 ﻿using Sirenix.OdinInspector;
+using TopDownHordes.Projectile;
 using UnityEngine;
 
 namespace TopDownHordes.ScriptableObjects
@@ -7,10 +8,10 @@ namespace TopDownHordes.ScriptableObjects
     public class PlayerSpell : ScriptableObject
     {
         [ValidateInput(nameof(ValidateSpellName))]
-        public string SpellName; // Localization Key in future is localization is added to project
+        public string SpellName; // Localization Key in future if localization is added to project
         
         [ValidateInput(nameof(ValidatePrefabs))]
-        public GameObject SpellPrefab;
+        public SpellProjectile SpellPrefab;
 
         [ValidateInput(nameof(ValidateProjectileSpeed))]
         public float ProjectileSpeed;
