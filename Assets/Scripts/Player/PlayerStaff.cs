@@ -1,46 +1,33 @@
-﻿using Sirenix.OdinInspector;
-using TopDownHordes.ScriptableObjects;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TopDownHordes.Player
 {
     public class PlayerStaff : MonoBehaviour
     {
-        [Header("Scriptable Objects")]
-        [Required]
-        [SerializeField] private PlayerSpellsContainer _spellsContainer;
-        
         [Header("Components")]
         [SerializeField] private Transform _shootPoint;
 
-        private PlayerSpell[] _allSpells;
-        private PlayerSpell _activeSpell;
-        
-        private int _activeSpellIndex;
-
-        private void Awake()
-        {
-            _allSpells = _spellsContainer.GetPlayerSpells();
-        }
-
-        private void Start()
-        {
-            _activeSpell = _allSpells[0];
-            _activeSpellIndex = 0;
-        }
+        [SerializeField] private PlayerSpellsController _spellsController;
         
         public void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            Shoot();
+        }
+
+        private void Shoot()
+        {
+            if (!Input.GetKeyDown(KeyCode.X))
             {
-                _activeSpellIndex = (_activeSpellIndex - 1 + _allSpells.Length) % _allSpells.Length;
-                _activeSpell = _allSpells[_activeSpellIndex];
+                return;
             }
-            else if (Input.GetKeyDown(KeyCode.W))
+            
+            if (_spellsController.IsSpellOnCooldown())
             {
-                _activeSpellIndex = (_activeSpellIndex + 1) % _allSpells.Length;
-                _activeSpell = _allSpells[_activeSpellIndex];
+                return;
             }
+
+            Instantiate(_spellsController.ActiveSpell.SpellPrefab, _shootPoint.position, _shootPoint.rotation);
+            _spellsController.ReloadSpell();
         }
     }
 }

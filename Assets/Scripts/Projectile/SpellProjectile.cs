@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace TopDownHordes.Projectile
 {
     public class SpellProjectile : MonoBehaviour
     {
         [Header("Components")]
+        [Required]
         [SerializeField] private Rigidbody2D _rigidbody2D;
 
         private float _speed;
