@@ -110,7 +110,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5029895230889538377}
-  - component: {fileID: 5571975995740048160}
+  - component: {fileID: 226248009893299186}
   - component: {fileID: 7560164108180830627}
   m_Layer: 0
   m_Name: DeadlyMist Projectile
@@ -135,7 +135,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5571975995740048160
+--- !u!114 &226248009893299186
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,10 +144,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2417210914284847609}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50d4e5a72a5f447cb9eb2e3024289d70, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fd657c63b2548e6a44c39831520daf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody2D: {fileID: 7560164108180830627}
   _visual: {fileID: 7382080765615213732}
 --- !u!50 &7560164108180830627
 Rigidbody2D:

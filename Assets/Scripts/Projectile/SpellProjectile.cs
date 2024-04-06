@@ -1,38 +1,32 @@
 ﻿using DG.Tweening;
+using TopDownHordes.Interfaces;
 using UnityEngine;
 
 namespace TopDownHordes.Projectile
 {
-    public class SpellProjectile : MonoBehaviour
+    public abstract class SpellProjectile : MonoBehaviour
     { 
         [SerializeField] private Transform _visual;
 
         private float _speed;
+        private float _damage;
         
         private void Update()
         {
-            _visual.Translate(Vector3.up * (_speed * Time.deltaTime));
+            transform.Translate(Vector3.up * (_speed * Time.deltaTime));
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Player"))
-            {
-                return;
-            }
-            
-            Explode();
-        }
+        protected abstract void Explode();
 
-        private void Explode()
+        protected void DealDamage(IDamageable damageable)
         {
-            // TODO:
-            Destroy(gameObject);
+            damageable.ApplyDamage(_damage);
         }
         
-        public void Init(float speed)
+        public void Init(float speed, float damage)
         {
             _speed = speed;
+            _damage = damage;
 
             var scale = _visual.localScale;
             _visual.localScale = Vector3.zero;

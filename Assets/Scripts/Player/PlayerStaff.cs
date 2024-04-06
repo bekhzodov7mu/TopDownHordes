@@ -29,7 +29,7 @@ namespace TopDownHordes.Player
             var activeSpell = _spellsController.ActiveSpell;
             var projectile = Instantiate(activeSpell.ProjectilePrefab, _shootPoint.position, _shootPoint.rotation);
             
-            projectile.Init(activeSpell.ProjectileSpeed);
+            projectile.Init(activeSpell.ProjectileSpeed, activeSpell.Damage);
             
             _spellsController.ReloadSpell();
         }

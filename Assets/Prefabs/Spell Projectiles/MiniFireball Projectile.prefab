@@ -111,7 +111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3830206354834867839}
-  - component: {fileID: -8031437058857295999}
+  - component: {fileID: 4690630136840721108}
   - component: {fileID: -8997901178405594808}
   m_Layer: 0
   m_Name: MiniFireball Projectile
@@ -136,7 +136,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8031437058857295999
+--- !u!114 &4690630136840721108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,11 +145,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1844789873671457763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50d4e5a72a5f447cb9eb2e3024289d70, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f6b72b3bdba41389d917512394161fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody2D: {fileID: -8997901178405594808}
   _visual: {fileID: 8822359919405740822}
+  _explosionParticle: {fileID: 1483785641966012315, guid: 5f757b46f1672564b9203bf55909c1fe, type: 3}
 --- !u!50 &-8997901178405594808
 Rigidbody2D:
   serializedVersion: 4

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Star Glow
+  m_Name: Mini Fireball
   m_Shader: {fileID: -6465566751694194690, guid: 03cf415737d4a8d448e2c9bbc4ed05f6, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []

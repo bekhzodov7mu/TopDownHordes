@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Spell MiniFireball
   m_EditorClassIdentifier: 
   SpellName: Mini Fireball
-  ProjectilePrefab: {fileID: -8031437058857295999, guid: b77cf4f1bbf68e54fabf4434ad0ee2df, type: 3}
+  ProjectilePrefab: {fileID: 4690630136840721108, guid: b77cf4f1bbf68e54fabf4434ad0ee2df, type: 3}
   ProjectileSpeed: 20
   ReloadSpeed: 1.4
   Damage: 10
