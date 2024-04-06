@@ -11,7 +11,7 @@ namespace TopDownHordes.ScriptableObjects
         public string SpellName; // Localization Key in future if localization is added to project
         
         [ValidateInput(nameof(ValidatePrefabs))]
-        public SpellProjectile SpellPrefab;
+        public SpellProjectile ProjectilePrefab;
 
         [ValidateInput(nameof(ValidateProjectileSpeed))]
         public float ProjectileSpeed;
@@ -35,9 +35,9 @@ namespace TopDownHordes.ScriptableObjects
         
         private bool ValidatePrefabs(ref string errorMessage)
         {
-            if (SpellPrefab == null)
+            if (ProjectilePrefab == null)
             {
-                errorMessage = $"{nameof(SpellPrefab)} is Null!";
+                errorMessage = $"{nameof(ProjectilePrefab)} is Null!";
                 return false;
             }
 

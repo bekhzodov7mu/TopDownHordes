@@ -7,6 +7,8 @@ namespace TopDownHordes.Player
         [Header("Stats")]
         [SerializeField] private float _movementSpeed = 5f;
         
+        // Move to some LevelData so every level can have different size
+        // If level has different shape - just use BoxColliders
         [SerializeField] private float _radius = 5f;
         [SerializeField] private Vector3 _circlePos = Vector3.zero;
         

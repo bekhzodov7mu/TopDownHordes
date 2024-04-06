@@ -1,22 +1,27 @@
 ﻿using DG.Tweening;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace TopDownHordes.Projectile
 {
     public class SpellProjectile : MonoBehaviour
-    {
-        [Header("Components")]
-        [Required]
-        [SerializeField] private Rigidbody2D _rigidbody2D;
-
+    { 
         [SerializeField] private Transform _visual;
 
         private float _speed;
         
-        private void FixedUpdate()
+        private void Update()
         {
-            _rigidbody2D.velocity = transform.up * _speed;
+            _visual.Translate(Vector3.up * (_speed * Time.deltaTime));
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                return;
+            }
+            
+            Explode();
         }
 
         private void Explode()
