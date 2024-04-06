@@ -6,21 +6,21 @@ namespace TopDownHordes.UI
 {
     public class GamePlayUI: MonoBehaviour
     {
-        [SerializeField] private Image _healthBarImage;
+        [SerializeField] private Image _healthBarFillImage;
 
         private Tween _healthBarTween;
         
-        public void OnPlayerHealthChange(int newValue)
+        public void OnPlayerHealthChange(float maxValue, float newValue)
         {
             _healthBarTween?.Kill();
+
+            float ratio = newValue / maxValue;
             
-            float prevValue = _healthBarImage.fillAmount;
+            float prevValue = _healthBarFillImage.fillAmount;
             _healthBarTween = DOTween.To(() => prevValue, x =>
             {
-                _healthBarImage.fillAmount = x;
-            }, newValue, 0.3f);
+                _healthBarFillImage.fillAmount = x;
+            }, ratio, 0.3f);
         }
-        
-        
     }
 }
