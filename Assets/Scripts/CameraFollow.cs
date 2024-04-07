@@ -10,7 +10,10 @@ namespace TopDownHordes
     
         private void LateUpdate()
         {
-            transform.position = _target.transform.position + _offset;
+            if (_target != null) // TODO: subscribe to OnPlayerDied/Revived event to stop/continue following
+            {
+                transform.position = _target.transform.position + _offset;
+            }
         }     
     }
 }

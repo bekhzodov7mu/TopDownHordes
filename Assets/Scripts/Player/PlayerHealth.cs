@@ -1,4 +1,5 @@
 ﻿using System;
+using Sirenix.OdinInspector;
 using TopDownHordes.Interfaces;
 using TopDownHordes.UI;
 using UnityEngine;
@@ -8,9 +9,13 @@ namespace TopDownHordes.Player
 {
     public class PlayerHealth : MonoBehaviour, IDamageable
     {
+        [Space]
+        [SerializeField] private Damageable _damageable;
+        
         [Header("Stats")]
         [SerializeField] private float _maxHealth = 100;
         
+        [InfoBox("Zero value will completely remove coming damage")]
         [Range(0, 1f)]
         [SerializeField] private float _armorValue = 1;
 
@@ -32,10 +37,20 @@ namespace TopDownHordes.Player
         {
             HealthValue = _maxHealth;
         }
+        
+        private void OnEnable()
+        {
+            _damageable.OnDamage += ApplyDamage;
+        }
+
+        private void OnDisable()
+        {
+            _damageable.OnDamage -= ApplyDamage;
+        }
 
         public void ApplyDamage(float damageValue)
         {
-            HealthValue = _armorValue * damageValue;
+            HealthValue -= _armorValue * damageValue;
 
             if (HealthValue == 0)
             {

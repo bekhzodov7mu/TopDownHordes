@@ -32,7 +32,8 @@ namespace TopDownHordes.Player
         {
             ActiveSpell = _allSpells[0];
             _activeSpellIndex = 0;
-            
+
+            _spellReloadTimers.CreateSpellReloadTimers();
             _spellReloadTimers.SetActiveSpell(_activeSpellIndex);
         }
         

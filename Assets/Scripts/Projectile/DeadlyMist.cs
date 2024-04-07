@@ -10,6 +10,8 @@ namespace TopDownHordes.Projectile
 {
     public class DeadlyMist : SpellProjectile
     {
+        [SerializeField] private float _damageRepetitionTime = 0.1f;
+        
         private readonly HashSet<IDamageable> _damageables = new();
 
         private readonly CancellationTokenSource _cancellationTokenSource = new();
@@ -17,6 +19,7 @@ namespace TopDownHordes.Projectile
         private void Start()
         {
             DamageOverTime(_cancellationTokenSource.Token).Forget();
+            StartCountdown(gameObject.GetCancellationTokenOnDestroy()).Forget();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -30,14 +33,9 @@ namespace TopDownHordes.Projectile
             {
                 _damageables.Add(damageable);
             }
-
-            if (other.CompareTag("Border"))
-            {
-                Explode();
-            }
         }
 
-        private void OnTriggerExit(Collider other)
+        private void OnTriggerExit2D(Collider2D other)
         {
             if (other.TryGetComponent(out IDamageable damageable) && _damageables.Contains(damageable))
             {
@@ -49,12 +47,13 @@ namespace TopDownHordes.Projectile
         {
             while (!cancellationToken.IsCancellationRequested)
             {
-                foreach (var damageable in _damageables)
+                var cached = new HashSet<IDamageable>(_damageables);
+                foreach (var damageable in cached)
                 {
                     DealDamage(damageable);
                 }
 
-                await UniTask.Delay(TimeSpan.FromSeconds(1), cancellationToken: cancellationToken);
+                await UniTask.Delay(TimeSpan.FromSeconds(_damageRepetitionTime), cancellationToken: cancellationToken);
             }
         }
         
@@ -64,7 +63,7 @@ namespace TopDownHordes.Projectile
 
             transform.DOScale(Vector3.zero, 0.2f).OnComplete(() =>
             {
-                Destroy(gameObject);
+                Destroy(gameObject); // TODO: ObjectPool
             });
         }
     }
