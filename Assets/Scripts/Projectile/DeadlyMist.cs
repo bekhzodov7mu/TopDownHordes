@@ -15,6 +15,8 @@ namespace TopDownHordes.Projectile
         private readonly HashSet<IDamageable> _damageables = new();
 
         private readonly CancellationTokenSource _cancellationTokenSource = new();
+
+        private const float AnimSpeed = 0.2f;
         
         private void Start()
         {
@@ -61,7 +63,7 @@ namespace TopDownHordes.Projectile
         {
             _cancellationTokenSource?.Cancel();
 
-            transform.DOScale(Vector3.zero, 0.2f).OnComplete(() =>
+            transform.DOScale(Vector3.zero, AnimSpeed).OnComplete(() =>
             {
                 Destroy(gameObject); // TODO: ObjectPool
             });

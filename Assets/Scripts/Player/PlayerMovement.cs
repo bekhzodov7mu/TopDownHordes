@@ -12,7 +12,7 @@ namespace TopDownHordes.Player
         [SerializeField] private float _radius = 5f;
         [SerializeField] private Vector3 _circlePos = Vector3.zero;
         
-        private const float Offset = 270;
+        private const float RotationOffset = 270;
         
         private Vector2 _movementVelocity;
         private Vector2 _movementInput;
@@ -44,7 +44,7 @@ namespace TopDownHordes.Player
             
             if (movement != Vector3.zero)
             {
-                float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg + Offset;
+                float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg + RotationOffset;
                 transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             }
         }
