@@ -9,6 +9,9 @@ namespace TopDownHordes.Player
 {
     public class PlayerHealth : MonoBehaviour, IDamageable
     {
+        [Space]
+        [SerializeField] private Damageable _damageable;
+        
         [Header("Stats")]
         [SerializeField] private float _maxHealth = 100;
         
@@ -34,10 +37,20 @@ namespace TopDownHordes.Player
         {
             HealthValue = _maxHealth;
         }
+        
+        private void OnEnable()
+        {
+            _damageable.OnDamage += ApplyDamage;
+        }
+
+        private void OnDisable()
+        {
+            _damageable.OnDamage -= ApplyDamage;
+        }
 
         public void ApplyDamage(float damageValue)
         {
-            HealthValue = _armorValue * damageValue;
+            HealthValue -= _armorValue * damageValue;
 
             if (HealthValue == 0)
             {

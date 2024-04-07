@@ -1,5 +1,6 @@
 using System;
 using Sirenix.OdinInspector;
+using TMPro;
 using TopDownHordes.Interfaces;
 using UnityEngine;
 
@@ -11,6 +12,11 @@ namespace TopDownHordes.Enemies
 
         [Header("Scripts")]
         [SerializeField] private EnemyLinker _enemyLinker;
+        [Space]
+        [SerializeField] private Damageable _damageable;
+
+        [Header("Components")]
+        [SerializeField] private TextMeshPro _healthValueText;
         
         [Header("Stats")]
         [SerializeField] private float _maxHealth = 10;
@@ -24,7 +30,11 @@ namespace TopDownHordes.Enemies
         private float HealthValue
         {
             get => _healthValue;
-            set => _healthValue = Math.Clamp(value, 0, _maxHealth);
+            set
+            {
+                _healthValue = Math.Clamp(value, 0, _maxHealth);
+                _healthValueText.text = $"{Mathf.Round(_healthValue)}";
+            }
         }
 
         private void Start()
@@ -32,9 +42,19 @@ namespace TopDownHordes.Enemies
             HealthValue = _maxHealth;
         }
 
+        private void OnEnable()
+        {
+            _damageable.OnDamage += ApplyDamage;
+        }
+
+        private void OnDisable()
+        {
+            _damageable.OnDamage -= ApplyDamage;
+        }
+
         public void ApplyDamage(float damageValue)
         {
-            HealthValue = _armorValue * damageValue;
+            HealthValue -= _armorValue * damageValue;
 
             if (HealthValue == 0)
             {

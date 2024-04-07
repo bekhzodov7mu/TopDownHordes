@@ -10,6 +10,9 @@ namespace TopDownHordes.Projectile
 {
     public class DeadlyMist : SpellProjectile
     {
+        [Header("Stats")]
+        [SerializeField] private float _damageRepetitionTime = 0.1f;
+        
         private readonly HashSet<IDamageable> _damageables = new();
 
         private readonly CancellationTokenSource _cancellationTokenSource = new();
@@ -54,7 +57,7 @@ namespace TopDownHordes.Projectile
                     DealDamage(damageable);
                 }
 
-                await UniTask.Delay(TimeSpan.FromSeconds(1), cancellationToken: cancellationToken);
+                await UniTask.Delay(TimeSpan.FromSeconds(_damageRepetitionTime), cancellationToken: cancellationToken);
             }
         }
         

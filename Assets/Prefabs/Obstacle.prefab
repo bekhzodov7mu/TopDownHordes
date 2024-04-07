@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 703178242640605097}
   m_Layer: 0
   m_Name: Obstacle
-  m_TagString: Border
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

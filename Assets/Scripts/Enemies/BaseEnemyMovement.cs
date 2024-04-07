@@ -6,9 +6,16 @@ namespace TopDownHordes.Enemies
     {
         [SerializeField] private float _movementSpeed = 1;
 
+        private const int RotationOffset = -90;
+        
         private Transform _target;
         
         private void Update()
+        {
+            MoveEnemy();
+        }
+
+        private void MoveEnemy()
         {
             if (_target != null)
             {
@@ -23,6 +30,9 @@ namespace TopDownHordes.Enemies
                 {
                     transform.Translate(direction.normalized * distanceThisFrame, Space.World);
                 }
+
+                float rotationZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0, 0, rotationZ + RotationOffset);
             }
         }
 

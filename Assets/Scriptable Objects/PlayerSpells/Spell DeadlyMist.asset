@@ -15,5 +15,5 @@ MonoBehaviour:
   SpellName: Deadly Mist
   ProjectilePrefab: {fileID: 226248009893299186, guid: 8a73f08078e276941911b2124c716d89, type: 3}
   ProjectileSpeed: 10
-  ReloadSpeed: 6
-  Damage: 2
+  ReloadSpeed: 5
+  Damage: 0.1

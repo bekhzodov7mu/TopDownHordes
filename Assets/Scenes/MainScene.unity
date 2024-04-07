@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: 557002885}
   m_Layer: 0
   m_Name: CircleBorder
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -827,7 +827,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: c8a54bb8bdcfdb44c841d6af0981c365, type: 3}
   m_Color: {r: 0.5754717, g: 0.38907674, b: 0.38907674, a: 1}
   m_FlipX: 0

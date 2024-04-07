@@ -15,5 +15,5 @@ MonoBehaviour:
   SpellName: Mini Fireball
   ProjectilePrefab: {fileID: 4690630136840721108, guid: b77cf4f1bbf68e54fabf4434ad0ee2df, type: 3}
   ProjectileSpeed: 20
-  ReloadSpeed: 1.4
-  Damage: 10
+  ReloadSpeed: 0.7
+  Damage: 5

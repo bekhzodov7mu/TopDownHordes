@@ -17,9 +17,9 @@ MonoBehaviour:
     TimeRequired: 0
     EnemiesSpawnProbability:
       _entries:
-      - _key: {fileID: -4119813067766964708, guid: 40c3e2e53302659478a91b213f5628c2, type: 3}
+      - _key: {fileID: 8873345617982944868, guid: c336a5e153943da4aa3a2acd296068ec, type: 3}
         _value: 70
-      - _key: {fileID: 1352703287257571585, guid: 1c10df08487c381469bb0dd7cd66c0f2, type: 3}
+      - _key: {fileID: 8923725230390755103, guid: 431dabfec52132044966bcf004862b84, type: 3}
         _value: 30
       _keys: []
       _values: 
@@ -27,11 +27,11 @@ MonoBehaviour:
     TimeRequired: 20
     EnemiesSpawnProbability:
       _entries:
-      - _key: {fileID: -4119813067766964708, guid: 40c3e2e53302659478a91b213f5628c2, type: 3}
+      - _key: {fileID: 8873345617982944868, guid: c336a5e153943da4aa3a2acd296068ec, type: 3}
         _value: 50
-      - _key: {fileID: 1352703287257571585, guid: 1c10df08487c381469bb0dd7cd66c0f2, type: 3}
+      - _key: {fileID: 8923725230390755103, guid: 431dabfec52132044966bcf004862b84, type: 3}
         _value: 30
-      - _key: {fileID: -6051741005450686528, guid: 90f6395de573963418bdbcd3d24cf0ad, type: 3}
+      - _key: {fileID: 3016955135609301363, guid: 27bfaa1c003f6484fa097fed3b952e2f, type: 3}
         _value: 20
       _keys: []
       _values: 
