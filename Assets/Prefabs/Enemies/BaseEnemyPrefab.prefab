@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2357531558664227585}
   - component: {fileID: 352789774740902185}
   - component: {fileID: 5650870981440900024}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HealthValueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4926844649635396163}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,8 +215,9 @@ GameObject:
   - component: {fileID: 6764646796798315318}
   - component: {fileID: 2755923503135342217}
   - component: {fileID: 4891063615093244736}
+  - component: {fileID: 7213285322342617744}
   - component: {fileID: 8725513058521328184}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BaseEnemyPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,6 +286,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 1
+--- !u!114 &7213285322342617744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8353855139774660777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27b9f584206413b87e64273d033ba86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 10
 --- !u!50 &8725513058521328184
 Rigidbody2D:
   serializedVersion: 4
@@ -316,7 +330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3348486318113221676}
   - component: {fileID: 4737056331322767876}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _visual: {fileID: 7382080765615213732}
+  _damageRepetitionTime: 0.05
 --- !u!50 &7560164108180830627
 Rigidbody2D:
   serializedVersion: 4

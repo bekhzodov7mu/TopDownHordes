@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _visual: {fileID: 8822359919405740822}
+  _lifeTime: 7
   _explosionParticle: {fileID: 1483785641966012315, guid: 5f757b46f1672564b9203bf55909c1fe, type: 3}
 --- !u!50 &-8997901178405594808
 Rigidbody2D:

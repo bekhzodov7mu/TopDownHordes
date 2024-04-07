@@ -1,4 +1,5 @@
-﻿using TopDownHordes.Interfaces;
+﻿using Cysharp.Threading.Tasks;
+using TopDownHordes.Interfaces;
 using UnityEngine;
 
 namespace TopDownHordes.Projectile
@@ -6,7 +7,12 @@ namespace TopDownHordes.Projectile
     public class MiniFireball : SpellProjectile
     {
         [SerializeField] private GameObject _explosionParticle;
-        
+
+        private void Start()
+        {
+            StartCountdown(gameObject.GetCancellationTokenOnDestroy()).Forget();
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))

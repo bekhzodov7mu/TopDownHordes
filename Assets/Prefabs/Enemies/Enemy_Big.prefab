@@ -255,6 +255,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7213285322342617744, guid: 25d4dd7c9f1253748bf40b6c7620faf3, type: 3}
+      propertyPath: _damage
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8353855139774660777, guid: 25d4dd7c9f1253748bf40b6c7620faf3, type: 3}
       propertyPath: m_Name
       value: Enemy_Big

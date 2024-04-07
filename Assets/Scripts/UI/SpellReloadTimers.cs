@@ -20,13 +20,8 @@ namespace TopDownHordes.UI
         private readonly Dictionary<int, ReloadTimerView> _reloadTimerViews = new();
 
         private PlayerSpell[] _playerSpells;
-        
-        private void Start()
-        {
-            CreateSpellReloadTimers();
-        }
 
-        private void CreateSpellReloadTimers()
+        public void CreateSpellReloadTimers()
         {
             _playerSpells = _spellsContainer.GetPlayerSpells();
             
