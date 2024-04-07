@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using Collections.Scopes;
 using Cysharp.Threading.Tasks;
 using TopDownHordes.Enemies;
 using TopDownHordes.ScriptableObjects;
@@ -22,8 +21,11 @@ namespace TopDownHordes
         
         [Header("World")]
         [SerializeField] private Transform _player;
+        
+        private const int MaxSpawnProbability = 100;
 
         private readonly HashSet<EnemyLinker> _spawnedEnemies = new();
+        private readonly System.Random _random = new();
 
         private EnemiesBalanceInfo _currentBalanceInfo;
         
@@ -90,35 +92,23 @@ namespace TopDownHordes
             _spawnCancellationTokenSource = new CancellationTokenSource();
             SpawnEnemies(_spawnCancellationTokenSource.Token).Forget();
         }
-
+        
         private EnemyLinker GetRandomEnemy()
         {
-            // Convert spawn probabilities into accumulative percentages
-            using (HashSetScope<(EnemyLinker, float)>.Create(out var accumulativeSpawnPercentages))
+            int randomNumber = _random.Next(MaxSpawnProbability);
+            int currentWeight = 0;
+            
+            foreach ((EnemyLinker linker, int value) in _currentBalanceInfo.EnemiesSpawnProbability)
             {
-                float accumulativePercentage = 0.0f;
-                foreach ((EnemyLinker linker, float probability) in _currentBalanceInfo.EnemiesSpawnProbability)
-                {
-                    accumulativePercentage += probability;
-                    accumulativeSpawnPercentages.Add((linker, accumulativePercentage));
-                }
+                currentWeight += value;
 
-                // Generate a random value between 0 and the accumulative maximum
-                float randomValue = Random.Range(0.0f, accumulativePercentage);
-
-                // Select the EnemyLinker whose range contains the generated random value
-                foreach ((EnemyLinker enemy, float spawnPercentage) in accumulativeSpawnPercentages)
+                if (randomNumber < currentWeight)
                 {
-                    if (randomValue <= spawnPercentage)
-                    {
-                        return enemy;
-                    }
+                    return linker;
                 }
             }
-
-            // In case no range was found (which should not happen if the probabilities are properly normalized), just return the first enemy
-            //return _currentBalanceInfo.EnemiesSpawnProbability.Keys.First();
-            throw new Exception("");
+            
+            throw new Exception("Impossible value!");
         }
         
         private Vector3 GetRandomSpawnPoint()

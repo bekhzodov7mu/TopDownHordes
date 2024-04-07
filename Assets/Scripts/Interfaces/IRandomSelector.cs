@@ -1,6 +1,6 @@
 namespace TopDownHordes.Interfaces
 {
-    public interface ISectionSelector<out T>
+    public interface IRandomSelector<out T>
     {
         T GetRandomItem();
     }

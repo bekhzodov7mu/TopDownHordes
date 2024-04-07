@@ -17,23 +17,25 @@ namespace TopDownHordes.Enemies
 
         private void MoveEnemy()
         {
-            if (_target != null)
+            if (_target == null)
             {
-                Vector3 direction = _target.position - transform.position;
-                float distanceThisFrame = _movementSpeed * Time.deltaTime;
-
-                if (direction.magnitude <= distanceThisFrame)
-                {
-                    transform.position = _target.position;
-                }
-                else
-                {
-                    transform.Translate(direction.normalized * distanceThisFrame, Space.World);
-                }
-
-                float rotationZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(0, 0, rotationZ + RotationOffset);
+                return;
             }
+            
+            Vector3 direction = _target.position - transform.position;
+            float distanceThisFrame = _movementSpeed * Time.deltaTime;
+
+            if (direction.magnitude <= distanceThisFrame)
+            {
+                transform.position = _target.position;
+            }
+            else
+            {
+                transform.Translate(direction.normalized * distanceThisFrame, Space.World);
+            }
+
+            float rotationZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, rotationZ + RotationOffset);
         }
 
         public void SetTarget(Transform target)

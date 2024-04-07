@@ -4,7 +4,7 @@ using TopDownHordes.Interfaces;
 
 namespace Utilities
 {
-    public class RandomSelector<T> : ISectionSelector<T> 
+    public class RandomSelector<T> : IRandomSelector<T> 
     {
         private readonly Queue<int> _recentIndices;
         private readonly Random _random;

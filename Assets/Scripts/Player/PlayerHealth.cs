@@ -1,5 +1,4 @@
 ﻿using System;
-using Sirenix.OdinInspector;
 using TopDownHordes.Interfaces;
 using TopDownHordes.UI;
 using UnityEngine;
@@ -15,7 +14,6 @@ namespace TopDownHordes.Player
         [Header("Stats")]
         [SerializeField] private float _maxHealth = 100;
         
-        [InfoBox("Zero value will completely remove coming damage")]
         [Range(0, 1f)]
         [SerializeField] private float _armorValue = 1;
 

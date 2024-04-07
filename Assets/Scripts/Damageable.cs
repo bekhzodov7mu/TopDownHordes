@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace TopDownHordes
 {
+    /// <summary>
+    /// Attach to gameObject with Collider2D to receive Damage
+    /// </summary>
     public class Damageable : MonoBehaviour, IDamageable
     {
         public event Action<float> OnDamage;
