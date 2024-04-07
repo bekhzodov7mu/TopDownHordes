@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Red Glow
+  m_Name: Purple Glow
   m_Shader: {fileID: -6465566751694194690, guid: 03cf415737d4a8d448e2c9bbc4ed05f6, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -43,5 +43,5 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - Color_966BB22D: {r: 2, g: 0, b: 0.2617798, a: 1}
+    - Color_966BB22D: {r: 2, g: 0, b: 1.368494, a: 1}
   m_BuildTextureStacks: []

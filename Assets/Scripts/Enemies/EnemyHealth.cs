@@ -1,33 +1,30 @@
-﻿using System;
+using System;
 using Sirenix.OdinInspector;
 using TopDownHordes.Interfaces;
-using TopDownHordes.UI;
 using UnityEngine;
-using Zenject;
 
-namespace TopDownHordes.Player
+namespace TopDownHordes.Enemies
 {
-    public class PlayerHealth : MonoBehaviour, IDamageable
+    public class EnemyHealth : MonoBehaviour, IDamageable
     {
-        [Header("Stats")]
-        [SerializeField] private float _maxHealth = 100;
+        public event Action<EnemyLinker> OnEnemyDied;
+
+        [Header("Scripts")]
+        [SerializeField] private EnemyLinker _enemyLinker;
         
+        [Header("Stats")]
+        [SerializeField] private float _maxHealth = 10;
+
         [InfoBox("Zero value will completely remove coming damage")]
         [Range(0, 1f)]
         [SerializeField] private float _armorValue = 1;
-
-        [Inject] private GamePlayUI _gamePlayUI;
         
         private float _healthValue;
 
         private float HealthValue
         {
             get => _healthValue;
-            set
-            {
-                _healthValue = Math.Clamp(value, 0, _maxHealth);
-                _gamePlayUI.OnPlayerHealthChange(_maxHealth, value);
-            }
+            set => _healthValue = Math.Clamp(value, 0, _maxHealth);
         }
 
         private void Start()
@@ -41,6 +38,7 @@ namespace TopDownHordes.Player
 
             if (HealthValue == 0)
             {
+                OnEnemyDied?.Invoke(_enemyLinker);
                 Destroy(gameObject);
             }
         }

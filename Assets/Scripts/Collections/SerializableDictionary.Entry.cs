@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace GravityLoop.Collections
+namespace Collections
 {
     public sealed partial class SerializableDictionary<TKey, TValue>
     {

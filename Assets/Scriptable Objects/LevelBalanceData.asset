@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd126c123d6e43a48559ca2304486f03, type: 3}
+  m_Name: LevelBalanceData
+  m_EditorClassIdentifier: 
+  EnemiesBalanceInfo:
+  - Progression: Progression 0
+    TimeRequired: 0
+    EnemiesSpawnProbability:
+      _entries:
+      - _key: {fileID: -4119813067766964708, guid: 40c3e2e53302659478a91b213f5628c2, type: 3}
+        _value: 70
+      - _key: {fileID: 1352703287257571585, guid: 1c10df08487c381469bb0dd7cd66c0f2, type: 3}
+        _value: 30
+      _keys: []
+      _values: 
+  - Progression: Progression 1
+    TimeRequired: 20
+    EnemiesSpawnProbability:
+      _entries:
+      - _key: {fileID: -4119813067766964708, guid: 40c3e2e53302659478a91b213f5628c2, type: 3}
+        _value: 50
+      - _key: {fileID: 1352703287257571585, guid: 1c10df08487c381469bb0dd7cd66c0f2, type: 3}
+        _value: 30
+      - _key: {fileID: -6051741005450686528, guid: 90f6395de573963418bdbcd3d24cf0ad, type: 3}
+        _value: 20
+      _keys: []
+      _values: 

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using GravityLoop.Scopes;
+using Collections.Scopes;
 using UnityEngine;
 
-namespace GravityLoop.Collections
+namespace Collections
 {
     [Serializable]
     public sealed partial class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver

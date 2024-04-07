@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using GravityLoop.Utilities;
 
-namespace GravityLoop.Scopes
+namespace Collections.Scopes
 {
     public readonly struct ListScope<T> : IDisposable
     {
