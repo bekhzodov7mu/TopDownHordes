@@ -71,10 +71,11 @@ namespace TopDownHordes
         private void SpawnEnemy() 
         {
             Vector3 spawnPosition = GetRandomSpawnPoint();
-            
+
+            // TODO: ObjectPool
             var enemy = Instantiate(GetRandomEnemy(), spawnPosition, Quaternion.identity);
-             enemy.EnemyMovement.SetTarget(_player);
-             enemy.EnemyHealth.OnEnemyDied += OnEnemyDied;
+            enemy.EnemyMovement.SetTarget(_player);
+            enemy.EnemyHealth.OnEnemyDied += OnEnemyDied;
 
             _spawnedEnemies.Add(enemy);
         }
@@ -122,6 +123,7 @@ namespace TopDownHordes
         
         private Vector3 GetRandomSpawnPoint()
         {
+            // TODO: Utilize ISectionSelector to have less side repetitions
             // Get camera boundaries
             float left = _camera.ViewportToWorldPoint(new Vector3(0, 0)).x;
             float right = _camera.ViewportToWorldPoint(new Vector3(1, 0)).x;

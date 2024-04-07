@@ -31,7 +31,7 @@ namespace TopDownHordes.Projectile
         protected override void Explode()
         {
             Instantiate(_explosionParticle, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            Destroy(gameObject); // TODO: ObjectPool
         }
     }
 }

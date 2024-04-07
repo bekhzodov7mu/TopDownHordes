@@ -56,8 +56,6 @@ namespace TopDownHordes.Projectile
                 await UniTask.Delay(TimeSpan.FromSeconds(_damageRepetitionTime), cancellationToken: cancellationToken);
             }
         }
-
-        
         
         protected override void Explode()
         {
@@ -65,7 +63,7 @@ namespace TopDownHordes.Projectile
 
             transform.DOScale(Vector3.zero, 0.2f).OnComplete(() =>
             {
-                Destroy(gameObject);
+                Destroy(gameObject); // TODO: ObjectPool
             });
         }
     }
