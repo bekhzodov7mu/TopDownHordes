@@ -20,7 +20,7 @@ namespace TopDownHordes.ScriptableObjects
 
                 if (EnemiesBalanceInfo[i].TimeRequired >= EnemiesBalanceInfo[i + 1].TimeRequired)
                 {
-                    errorMessage = $"{EnemiesBalanceInfo[i].Progression} 'SectionsRequired' should be less than {EnemiesBalanceInfo[i + 1].Progression} 'SectionsRequired'";
+                    errorMessage = $"{EnemiesBalanceInfo[i].Progression} 'TimeRequired' should be less than {EnemiesBalanceInfo[i + 1].Progression} 'TimeRequired'";
                     return false;
                 }
             }
